@@ -34,7 +34,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">{{session()->get('admin_login')->ten_dang_nhap}}</div>
+                <div class="sidebar-brand-text mx-3">{{ Auth::User()->ten_dang_nhap }}</div>
             </a>
 
             <hr class="sidebar-divider">
@@ -300,7 +300,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{session()->get('admin_login')->ten_dang_nhap}}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::User()->ten_dang_nhap }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('layout/img/undraw_profile.svg')}}">
                             </a>

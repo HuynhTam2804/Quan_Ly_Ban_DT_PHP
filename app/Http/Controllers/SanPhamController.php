@@ -65,16 +65,16 @@ class SanPhamController extends Controller
         $SP->loai_san_pham_id = $re->loai_san_pham_id;
         $SP->save();
 
-        $Ha=$re->hinh_anh;
+        $files=$re->hinh_anh;
 
         $h_anh=HinhAnh::where('san_pham_id',$id)->delete();
 
-        foreach($Ha as $data){
-            $anh=new HinhAnh();
-            $anh->san_pham_id=$id;
-            $img=$data->store('hinhanh');
-            $anh->url=$img;
-            $anh->save();
+        foreach($files as $file){
+            $hinh=new HinhAnh();
+            $hinh->san_pham_id=$id;
+            $path= $file->store('hinhanh');
+            $hinh->url= $path;
+            $hinh->save();
         }
         return redirect()->route("sanpham.danh-sach")->with('thong_bao','Cập nhật sản phẩm thành công');
     }
